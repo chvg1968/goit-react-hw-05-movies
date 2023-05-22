@@ -131,7 +131,6 @@ input, button{
   cursor: pointer;
   transition: transform 0.3s ease;
   transform: translateX(-1000%);
-  border: solid 1px red; 
 }
 
 .movie-container.open {
