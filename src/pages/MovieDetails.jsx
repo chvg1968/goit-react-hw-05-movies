@@ -74,7 +74,7 @@ function MovieDetails() {
               {movie.genres.map((genre) => genre.name).join(", ")}
             </p>
             <div className="addInfo">
-            <p>Additional Information</p>
+            <p className="add-title">Additional Information</p>
             <ul>
               <li>
                 {/* Cast button */}
