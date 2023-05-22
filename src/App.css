@@ -54,6 +54,8 @@ input, button{
   width: 600px;
   padding: 10px;
   z-index: 999;
+  transition: transform 0.3s ease;
+  transform: translateX(0);
 }
 
 .center{
@@ -89,7 +91,6 @@ input, button{
 
 .cast-list{
   position: relative;
-  margin:0 auto; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -105,7 +106,6 @@ input, button{
 .reviews-list{
   top:50px;  
   position: relative;
-  margin:0 auto;
   display: flex;  
   flex-direction: column;
   align-items:center; 
@@ -124,18 +124,24 @@ input, button{
   margin-left: -50%;
 }
 
-.movie-container.show-cast {
-  transform: translateX(-50%);
+.cast-list,
+.reviews-list {
+  width: 500px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  transform: translateX(-1000%);
+  border: solid 1px red; 
 }
 
-.movie-container.show-reviews {
-  transform: translateX(-50%);
+.movie-container.open {
+  transition: transform 0.3s ease;
+  transform: translateX(-20%);
 }
 
-.cast-list.show {
-  transform: translateX(0%);
+.cast-list.open,
+.reviews-list.open {
+  transition: transform 0.3s ease;
+  transform: translateX(1120%);
 }
 
-.reviews-list.show {
-  transform: translateX(0%);
-}

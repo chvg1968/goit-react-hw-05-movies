@@ -50,10 +50,7 @@ function MovieDetails() {
   return (
     <div>
       {movie ? (
-        <div
-        className={`center movie-container ${showCast ? "show-cast" : ""} ${
-          showReviewsList ? "show-reviews" : ""}`}
-        >
+        <div className={`center movie-container ${showCastList || showReviewsList  ? 'open' : ''}`}>
           <img
             className="poster"
             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -96,13 +93,13 @@ function MovieDetails() {
       )}
 
       {showCast && cast && (
-      <div className={`cast-list ${showCastList ? "show" : ""}`}>
+      <div className={`cast-list ${showCastList ? "open" : ""}`}>
         <Cast cast={cast.cast} />
       </div>
     )}
 
     {!showCast && reviews && (
-      <div className={`reviews-list ${showReviewsList ? "show" : ""}`}>
+      <div className={`reviews-list ${showReviewsList ? "open" : ""}`}> 
         <Reviews reviews={reviews.results} />
       </div>
     )}
