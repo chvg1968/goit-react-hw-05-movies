@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { Routes, Route, NavLink } from 'react-router-dom';
+import { Routes, Route, NavLink, Outlet } from 'react-router-dom';
 import '../App.css';
 
 const Home = lazy(() => import('../pages/Home'));
@@ -19,9 +19,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/movies" element={<Movies />} />
-          <Route path="/movies/:movieId" element={<MovieDetails />} />
-          <Route path="/movies/:movieId/cast" element={<Cast />} />
-          <Route path="/movies/:movieId/reviews" element={<Reviews />} />
+          <Route path="/movies/:movieId" element={<MovieDetails />}>
+            <Route index element={<Outlet />} />
+            <Route path="cast" element={<Cast />} />
+            <Route path="reviews" element={<Reviews />} />
+          </Route>
           <Route path="*" element={<Home />} />
         </Routes>
       </Suspense>
@@ -30,3 +32,4 @@ function App() {
 }
 
 export default App;
+

@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Cast from "../pages/Cast";
 import Reviews from "../pages/Reviews";
 
 function MovieDetails() {
   const [movie, setMovie] = useState(null);
   const { movieId } = useParams();
+  const navigate = useNavigate();
   const [showCast, setShowCast] = useState(false);
   const [cast, setCast] = useState(null);
   const [reviews, setReviews] = useState(null);
@@ -39,23 +40,28 @@ function MovieDetails() {
     setShowCast(true);
     setShowCastList(true);
     setShowReviewsList(false);
+    navigate(`/movies/${movieId}/cast`);
   };
 
   const handleReviewsClick = () => {
     setShowCast(false);
     setShowCastList(false);
-    setShowReviewsList(true);  
+    setShowReviewsList(true); 
+    navigate(`/movies/${movieId}/reviews`); 
   };
 
   return (
     <div>
       {movie ? (
         <div className={`center movie-container ${showCastList || showReviewsList  ? 'open' : ''}`}>
-          <img
+          {movie.poster_path &&  
+          (
+           <img
             className="poster"
             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
             alt="Poster"
           />
+          )}
           <div className="movie-details">
             <h1>{movie.title}</h1>
             <p>
