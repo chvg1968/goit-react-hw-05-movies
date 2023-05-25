@@ -45,17 +45,16 @@ input, button{
 
 
 .movie-container { 
-  top:210px;
-  position: absolute;
+  top:100px;
+  position: absolute; 
   gap: 10px;
   background-color: rgb(69, 69, 69);
   color: white;
   border-radius: 5px;
-  width: 600px;
+  width: 500px;
   padding: 10px;
   z-index: 999;
   transition: transform 0.3s ease;
-  transform: translateX(0);
 }
 
 .center{
@@ -63,7 +62,7 @@ input, button{
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: translateX(50%);
+  transform: translateX(70%);
 }
 
 
@@ -82,13 +81,6 @@ input, button{
 }
 
 
-.cast{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; 
-}
-
 .cast-list{
   position: relative;
   display: flex;
@@ -104,7 +96,7 @@ input, button{
 }
 
 .reviews-list{
-  top:50px;  
+  top: 10px;  
   position: relative;
   display: flex;  
   flex-direction: column;
@@ -116,10 +108,6 @@ input, button{
 
 
 .addInfo{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   margin-top: 50px; 
   margin-left: -50%;
 }
